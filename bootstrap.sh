@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DIR='/raptoreum/.raptoreumcore'
-BOOTSTRAP_TAR='https://bootstrap.raptoreum.com/bootstrap_with_indexes.tar.xz'
+DIR='/jagoancoin/.jagoancoincore'
+BOOTSTRAP_TAR='https://bootstrap.jagoancoin.org/bootstrap_with_indexes.tar.xz'
 
 if [ ! -d $DIR ]; then
   mkdir -p $DIR

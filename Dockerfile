@@ -1,4 +1,4 @@
-# Raptoreum Smartnode April 2021
+# Jagoancoin Smartnode April 2021
 
 # Use Ubuntu 18 
 FROM ubuntu:bionic
@@ -18,16 +18,16 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Create dir to run datadir to bind for persistent data
-RUN mkdir /raptoreum
-VOLUME /raptoreum
-WORKDIR /raptoreum
+RUN mkdir /jagoancoin
+VOLUME /jagoancoin
+WORKDIR /jagoancoin
 
-COPY ./bootstrap.sh ./rtm-bins.sh ./start.sh /usr/local/bin/
+COPY ./bootstrap.sh ./jgc-bins.sh ./start.sh /usr/local/bin/
 RUN chmod -R 755 /usr/local/bin
-RUN rtm-bins.sh
+RUN jgc-bins.sh
 
 # Smartnode p2p port
-EXPOSE 10226
+EXPOSE 17899
 
 # Use healthcheck to deal with hanging issues and prevent pose bans
 HEALTHCHECK --start-period=10m --interval=15m --retries=3 --timeout=10s \

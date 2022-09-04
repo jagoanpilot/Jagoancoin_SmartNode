@@ -1,4 +1,4 @@
-# Raptoreum SmartNode
+# Jagoancoin SmartNode
 Script needs to be ran under a sudo user and not under root. It will install binaries, configure basic firewall settings, and create a daemon service for you. It also has a bootstrap option for quick syncing and option to create a Cron job that will check on daemon's health every hour.  
 
 > ℹ Note: This has only been tested on a VPS using Ubuntu 18. USE AT OWN RISK.
@@ -7,9 +7,9 @@ Script needs to be ran under a sudo user and not under root. It will install bin
 Create a sudo user and run this under that sudo user. Script will exit if logged in as root.  
 Script will ask for BLS PrivKey(operatorSecret) that you get from the protx quick_setup/bls generate command. So have it ready.  
 If opting to have script create Cron job you will need the protx hash you got from the protx quick_setup.  
-Please check [Wiki](https://github.com/dk808/Raptoreum_SmartNode/wiki) for a detailed guide.
+Please check [Wiki](https://github.com/jagoanpilot/Jagoancoin_SmartNode/wiki) for a detailed guide.
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/dk808/Raptoreum_Smartnode/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/jagoanpilot/Jagoancoin_Smartnode/main/install.sh)
 ```
 > ℹ Info: This will also create a script to update binaries.
 ***
@@ -32,8 +32,8 @@ Example shown below is using `/root/smartnode` for binding volume. Change it to 
 docker run \
   -ti \
   --rm \
-  -v /root/smartnode:/raptoreum \
-  dk808/rtm-smartnode:latest \
+  -v /root/smartnode:/jagoancoin \
+  jagoanpilot/jgc-smartnode:latest \
   bootstrap.sh
 ```  
 | ENV VARIABLES |                         DESCRIPTION                         |
@@ -47,14 +47,14 @@ Example shown below to run the container. Please change env variables to your va
 ```bash
 docker run \
   -d \
-  -p 10226:10226 \
+  -p 17899:17899 \
   --name smartnode \
   -e EXTERNALIP=149.28.200.164 \
   -e BLS_KEY=084784f5dc8e01de1926fe7bdfd055916f22eb3823a10adb050fee9457dd483b \
   -e PROTX_HASH=d32c998e8155265900b590813e0e85ad7998e4f45b03e1ab722ec9be782b8eea \
-  -v /root/smartnode:/raptoreum \
+  -v /root/smartnode:/jagoancoin \
   --restart=unless-stopped \
-  dk808/rtm-smartnode:latest
+  jagoanpilot/jgc-smartnode:latest
   ```
-__Do not forget to open port 10226__  
-> ℹ Info: You could ask support questions in [Raptoreum's Discord](https://discord.gg/wqgcxT3Mgh)
+__Do not forget to open port 17899__  
+> ℹ Info: You could ask support questions in [Jagoancoin's Discord](https://discord.gg/a3brezx9vD)
